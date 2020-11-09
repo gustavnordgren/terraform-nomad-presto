@@ -39,6 +39,13 @@ job "${nomad_job_name}" {
               local_bind_port  = "${minio_port}"
             }
           }
+          sidecar_task {
+          driver = "docker"
+          resources {
+            cpu    = 100
+            memory = 512
+          }
+         }
         }
       }
       check {
